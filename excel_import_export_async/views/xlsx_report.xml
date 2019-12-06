@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2019 Ecosoft Co., Ltd.
+  License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).-->
+<odoo>
+
+    <record id="xlsx_report_view" model="ir.ui.view">
+        <field name="name">xlsx.report.view</field>
+        <field name="model">xlsx.report</field>
+        <field name="inherit_id" ref="excel_import_export.xlsx_report_view"/>
+        <field name="arch" type="xml">
+            <field name="template_id" position="after">
+                <field name="async_process"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
