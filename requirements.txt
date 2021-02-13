@@ -8,3 +8,6 @@ odoorpc
 openupgradelib
 raven
 unidecode
+openpyxl
+xlrd
+xlwt
