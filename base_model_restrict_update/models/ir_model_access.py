@@ -51,8 +51,8 @@ class IrModelAccess(models.Model):
     def _readonly_exclude_models(self):
         skipped_models = self.env["ir.model"].sudo().search([
             "|", ("transient", "=", True), ("skip_check_for_readonly_users", "=", True)
-        ]).mapped("model")
-        # Models updtate/create by system, and should be excluded from checking
+        ]).mapped("model") + self.env.user.except_readonly_model_ids.mapped("model")
+        # Models update/create by system, and should be excluded from checking
         return skipped_models + self.sudo().search([
             ("group_id", "=", False),
             "|", ("perm_write", "=", True),
